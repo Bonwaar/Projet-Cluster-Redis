@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 class="title">Demonstration du cluster Redis</h1>
+  {{#if dataSaved}}
+    <span>Données sauvegardées avec succès</span>
+  {{/if}}
+
+  <form action="/save-data" method="post">
+    <fieldset>
+      <label for="redisValue">Entrez un clé unique</label><br/>
+      <input type="text" id="redisValue" placeholder="clé-unique" name="key" required/>
+    </fieldset>
+    <fieldset>
+      <label for="redisKey">Entrez une valeur</label><br/>
+      <input type="text" id="redisKey" placeholder="valeur-attribuée" name="value" required/>
+    </fieldset>
+    <input type="submit" value="Envoyer au cluster Redis"/>
+  </form>
+
+  {{!-- <form action="/save-data-json" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="redisJson">Entrez un fichier délimité</label><br />
+      <input type="file" id="redisJson" name="jsonFile" required />
+    </fieldset>
+    <input type="submit" value="Envoyer au cluster Redis"/>
+
+  </form> --}}
+  
+  <form action="/save-data-random" method="post" enctype="multipart/form-data">
+    <input type="submit" value="Generer et inserer des données">
+  </form>
+
+  <div>
+    <h2>Rechercher une clé</h2>
+    <form action="/search" method="post">
+      <label for="search">Entrez une clé que vous avez préalablement enregistré</label><br/>
+      <input type="text" id="search" placeholder="clé-unique" name="key" required/>
+      <input type="submit" value="Chercher"/>
+  </form>
+  </div>
+
+  {{#if value}}
+  <div>
+      <h3>Valeur enregistrée dans le cluster Redis:</h1>
+      <strong>{{ value }}</strong>
+  </div>
+  {{/if}}
+  
+</div>
