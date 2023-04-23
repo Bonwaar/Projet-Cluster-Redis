@@ -1,4 +1,4 @@
-# Projet-Cluster-Redis
+# Projet-Cluster-Redis Groupe Goré Jean-alain
 
 # Structure du cluster
     -3 Noeuds maîtres ayant chacun un esclave
